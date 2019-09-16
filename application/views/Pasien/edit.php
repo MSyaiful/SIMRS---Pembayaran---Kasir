@@ -273,7 +273,8 @@
 									class="fas fa-fire"></i><span>Dashboard</span></a>
 							<ul class="dropdown-menu">
 								<li><a class="nav-link" href="<?php echo site_url('card/index'); ?>">Card</a></li>
-								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></li>
+								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+										Pembayaran</a></li>
 								<li><a class="nav-link" href="<?php echo site_url('pasien/index'); ?>">Pasien</a></li>
 							</ul>
 						</li>
@@ -288,7 +289,8 @@
 						<div class="section-header-breadcrumb">
 							<div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
 							<div class="breadcrumb-item"><a href="<?php echo site_url('card/index'); ?>">Card</a></div>
-							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></div>
+							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+									Pembayaran</a></div>
 						</div>
 					</div>
 
@@ -299,7 +301,7 @@
 							</div>
 							<div class="card-body">
 								<?php echo form_open('pasien/edit/'.$pasien['id'],array("class"=>"form-horizontal")); ?>
-								
+
 								<div class="form-group">
 									<label for="nama_pasien" class="col-md-2 control-label">Nama Pasien</label>
 									<div class="col-md-5">
@@ -311,17 +313,17 @@
 								<div class="form-group">
 									<label for="jns_kelamin" class="col-md-2 control-label">Jenis Kelamin</label>
 									<div class="col-md-2 form-check">
-										<input type="radio" class="form-check-input" name="jns_kelamin" value="L" 
-										<?php echo ($pasien['jns_kelamin']==1 ? 'checked="checked"' : ''); ?>
+										<input type="radio" class="form-check-input" name="jns_kelamin" value="L"
+											<?php echo ($pasien['jns_kelamin']==1 ? 'checked="checked"' : ''); ?>
 											id='jns_kelamin' />
 										<label class="form-check-label ml-5" for="jns_kelamin">Laki - Laki</label>
 									</div>
 									<div class="col-md-2 form-check">
 										<input type="radio" class="form-check-input" name="jns_kelamin" value="P"
-										<?php echo ($pasien['jns_kelamin']==2 ? 'checked="checked"' : ''); ?>
-											id='jns_kelamin'/>
-                        				<label class="form-check-label ml-5" for="jns_kelamin">Perempuan</label>
-                     				 </div>
+											<?php echo ($pasien['jns_kelamin']==2 ? 'checked="checked"' : ''); ?>
+											id='jns_kelamin' />
+										<label class="form-check-label ml-5" for="jns_kelamin">Perempuan</label>
+									</div>
 								</div>
 								<div class="form-group">
 									<label for="tgl_masuk" class="col-md-2 control-label">Tanggal Masuk</label>
@@ -388,7 +390,8 @@
 
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-4">
-										<a href="<?php echo site_url('pasien/index'); ?>" class="btn btn-danger">Back</a>
+										<a href="<?php echo site_url('pasien/index'); ?>"
+											class="btn btn-danger">Back</a>
 										<button type="submit" class="btn btn-success ml-5">Save</button>
 									</div>
 								</div>

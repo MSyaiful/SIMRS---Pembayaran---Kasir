@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<script>
-		function del(){
-			alert ("Data Berhasil Dihapus")
-		}
-	</script>
+<script>
+	function del() {
+		alert("Data Berhasil Dihapus")
+	}
+
+</script>
 
 <head>
 	<meta charset="UTF-8">
@@ -24,7 +25,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/components.css">
 
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 	 	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -281,7 +282,8 @@
 									class="fas fa-fire"></i><span>Dashboard</span></a>
 							<ul class="dropdown-menu">
 								<li><a class="nav-link" href="<?php echo site_url('card/index'); ?>">Card</a></li>
-								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></li>
+								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+										Pembayaran</a></li>
 								<li><a class="nav-link" href="<?php echo site_url('pasien/index'); ?>">Pasien</a></li>
 							</ul>
 						</li>
@@ -296,7 +298,8 @@
 						<div class="section-header-breadcrumb">
 							<div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
 							<div class="breadcrumb-item"><a href="<?php echo site_url('card/index'); ?>">Card</a></div>
-							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></div>
+							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+									Pembayaran</a></div>
 						</div>
 					</div>
 
@@ -307,36 +310,41 @@
 							</div>
 							<div class="card-body">
 								<div class="pull-right mb-4">
-									<a href="<?php echo site_url('pasien/add'); ?>" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
+									<a href="<?php echo site_url('pasien/add'); ?>" class="btn btn-success"><i
+											class="fas fa-plus"> Add</i></a>
 									<div class="dropdown mt-3">
-  									<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									  <i class="fas fa-arrow-alt-circle-down"> Export</i>
-  									</button>
-  										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="<?php echo site_url('pasien/export'); ?>" class="btn btn-primary"><i class="fas fa-file-export"> Excel</i></a>
-											<a class="dropdown-item" href="<?php echo site_url('pasien/cetak'); ?>" class="btn btn-primary"><i class="fas fa-file-export"> PDF</i></a>
-  										</div>
+										<button class="btn btn-primary dropdown-toggle" type="button"
+											id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">
+											<i class="fas fa-arrow-alt-circle-down"> Export</i>
+										</button>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											<a class="dropdown-item" href="<?php echo site_url('pasien/export'); ?>"
+												class="btn btn-primary"><i class="fas fa-file-export"> Excel</i></a>
+											<a class="dropdown-item" href="<?php echo site_url('pasien/cetak'); ?>"
+												class="btn btn-primary"><i class="fas fa-file-export"> PDF</i></a>
+										</div>
 									</div>
 								</div>
 								<div class="table-responsive">
-								<table class="table table-striped table-bordered" id="table">
-									<thead>
-										<tr>
-											<th>ID</th>
-											<th>Nama Pasien</th>
-											<th>Jenis Kelamin</th>
-											<th>Tanggal Masuk</th>
-											<th>Tanggal Keluar</th>
-											<th>Kamar</th>
-											<th>Penyakit</th>
-											<th>Alamat</th>
-											<th>No. Telpon</th>
-											<th>Actions</th>
-											<th></th>
-										</tr>
-									</thead>
-									
-								</table>
+									<table class="table table-striped table-bordered" id="table">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Nama Pasien</th>
+												<th>Jenis Kelamin</th>
+												<th>Tanggal Masuk</th>
+												<th>Tanggal Keluar</th>
+												<th>Kamar</th>
+												<th>Penyakit</th>
+												<th>Alamat</th>
+												<th>No. Telpon</th>
+												<th>Actions</th>
+												<th></th>
+											</tr>
+										</thead>
+
+									</table>
 								</div>
 							</div>
 							<div class="card-footer bg-whitesmoke">
@@ -379,35 +387,33 @@
 
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<script type="text/javascript">
-    var table;
-    $(document).ready(function() {
- 
-        //datatables
-        table = $('#table').DataTable({ 
- 
-            "processing": true, 
-            "serverSide": true, 
-            "order": [], 
-             
-            "ajax": {
-                "url": "<?php echo site_url('pasien/get_data_pasien')?>",
-                "type": "POST"
-            },
- 
-             
-            "columnDefs": [
-            { 
-                "targets": [ 0 ], 
-                "orderable": false, 
-            },
-            ],
- 
-        });
- 
-    });
- 
-</script>
+	<script type="text/javascript">
+		var table;
+		$(document).ready(function () {
+
+			//datatables
+			table = $('#table').DataTable({
+
+				"processing": true,
+				"serverSide": true,
+				"order": [],
+
+				"ajax": {
+					"url": "<?php echo site_url('pasien/get_data_pasien')?>",
+					"type": "POST"
+				},
+
+
+				"columnDefs": [{
+					"targets": [0],
+					"orderable": false,
+				}, ],
+
+			});
+
+		});
+
+	</script>
 
 	<!-- Page Specific JS File -->
 </body>

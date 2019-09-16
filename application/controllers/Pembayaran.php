@@ -27,11 +27,32 @@ class Pembayaran extends CI_Controller{
      */
     function add()
     {   
-        if(isset($_POST) && count($_POST) > 0)     
+        $this->load->library('form_validation');
+
+		$this->form_validation->set_rules('no_faktur','No Faktur','required|integer');
+		$this->form_validation->set_rules('nama_pasien','Nama Pasien','required');
+		$this->form_validation->set_rules('jns_kelamin','Jns Kelamin','required');
+		$this->form_validation->set_rules('tgl_masuk','Tgl Masuk','required');
+		$this->form_validation->set_rules('tgl_keluar','Tgl Keluar','required');
+		$this->form_validation->set_rules('jns_kamar','Jns Kamar','required');
+		$this->form_validation->set_rules('hrg_kamar','Hrg Kamar','required');
+		$this->form_validation->set_rules('jns_penyakit','Jns Penyakit','required');
+		$this->form_validation->set_rules('tindakan','Tindakan','required');
+		$this->form_validation->set_rules('hrg_tindakan','Hrg Tindakan','required');
+		$this->form_validation->set_rules('nama_obat','Nama Obat','required');
+		$this->form_validation->set_rules('hrg_obat','Hrg Obat','required');
+		$this->form_validation->set_rules('total_harga','Total Harga','required|integer');
+		$this->form_validation->set_rules('nama_pembayar','Nama Pembayar','required');
+		$this->form_validation->set_rules('jumlah_bayar','Jumlah Bayar','required|integer');
+		$this->form_validation->set_rules('jns_pembayaran','Jns Pembayaran','required');
+		$this->form_validation->set_rules('jns_card','Jns Card','required');
+		$this->form_validation->set_rules('tgl_bayar','Tgl Bayar','required');
+		$this->form_validation->set_rules('no_bukti','No Bukti','required|integer');
+		
+		if($this->form_validation->run())     
         {   
             $params = array(
 				'nama_pasien' => $this->input->post('nama_pasien'),
-				'jns_kelamin' => $this->input->post('jns_kelamin'),
 				'jns_kamar' => $this->input->post('jns_kamar'),
 				'hrg_kamar' => $this->input->post('hrg_kamar'),
 				'jns_penyakit' => $this->input->post('jns_penyakit'),
@@ -41,20 +62,23 @@ class Pembayaran extends CI_Controller{
 				'hrg_obat' => $this->input->post('hrg_obat'),
 				'jns_pembayaran' => $this->input->post('jns_pembayaran'),
 				'jns_card' => $this->input->post('jns_card'),
+				'no_faktur' => $this->input->post('no_faktur'),
+				'jns_kelamin' => $this->input->post('jns_kelamin'),
 				'tgl_masuk' => $this->input->post('tgl_masuk'),
 				'tgl_keluar' => $this->input->post('tgl_keluar'),
 				'total_harga' => $this->input->post('total_harga'),
-				'kembalian' => $this->input->post('kembalian'),
-				'kekurangan' => $this->input->post('kekurangan'),
+				'nama_pembayar' => $this->input->post('nama_pembayar'),
+				'jumlah_bayar' => $this->input->post('jumlah_bayar'),
+				'tgl_bayar' => $this->input->post('tgl_bayar'),
+				'no_bukti' => $this->input->post('no_bukti'),
             );
             
-            $pembayaran_id = $this->Pembayaran_model->add_pembayaran($params);
+            $this->Pembayaran_model->transaction($params);
             redirect('pembayaran/index');
         }
         else
         {
 			$this->load->model('Pasien_model');
-			$data['all_pasien'] = $this->Pasien_model->get_all_pasien();
 			$data['all_pasien'] = $this->Pasien_model->get_all_pasien();
 
 			$this->load->model('Kamar_model');
@@ -91,11 +115,32 @@ class Pembayaran extends CI_Controller{
         
         if(isset($data['pembayaran']['id']))
         {
-            if(isset($_POST) && count($_POST) > 0)     
+            $this->load->library('form_validation');
+
+			$this->form_validation->set_rules('no_faktur','No Faktur','required|integer');
+			$this->form_validation->set_rules('nama_pasien','Nama Pasien','required');
+			$this->form_validation->set_rules('jns_kelamin','Jns Kelamin','required');
+			$this->form_validation->set_rules('tgl_masuk','Tgl Masuk','required');
+			$this->form_validation->set_rules('tgl_keluar','Tgl Keluar','required');
+			$this->form_validation->set_rules('jns_kamar','Jns Kamar','required');
+			$this->form_validation->set_rules('hrg_kamar','Hrg Kamar','required');
+			$this->form_validation->set_rules('jns_penyakit','Jns Penyakit','required');
+			$this->form_validation->set_rules('tindakan','Tindakan','required');
+			$this->form_validation->set_rules('hrg_tindakan','Hrg Tindakan','required');
+			$this->form_validation->set_rules('nama_obat','Nama Obat','required');
+			$this->form_validation->set_rules('hrg_obat','Hrg Obat','required');
+			$this->form_validation->set_rules('total_harga','Total Harga','required|integer');
+			$this->form_validation->set_rules('nama_pembayar','Nama Pembayar','required');
+			$this->form_validation->set_rules('jumlah_bayar','Jumlah Bayar','required|integer');
+			$this->form_validation->set_rules('jns_pembayaran','Jns Pembayaran','required');
+			$this->form_validation->set_rules('jns_card','Jns Card','required');
+			$this->form_validation->set_rules('tgl_bayar','Tgl Bayar','required');
+			$this->form_validation->set_rules('no_bukti','No Bukti','required|integer');
+		
+			if($this->form_validation->run())     
             {   
                 $params = array(
 					'nama_pasien' => $this->input->post('nama_pasien'),
-					'jns_kelamin' => $this->input->post('jns_kelamin'),
 					'jns_kamar' => $this->input->post('jns_kamar'),
 					'hrg_kamar' => $this->input->post('hrg_kamar'),
 					'jns_penyakit' => $this->input->post('jns_penyakit'),
@@ -105,20 +150,23 @@ class Pembayaran extends CI_Controller{
 					'hrg_obat' => $this->input->post('hrg_obat'),
 					'jns_pembayaran' => $this->input->post('jns_pembayaran'),
 					'jns_card' => $this->input->post('jns_card'),
+					'no_faktur' => $this->input->post('no_faktur'),
+					'jns_kelamin' => $this->input->post('jns_kelamin'),
 					'tgl_masuk' => $this->input->post('tgl_masuk'),
 					'tgl_keluar' => $this->input->post('tgl_keluar'),
 					'total_harga' => $this->input->post('total_harga'),
-					'kembalian' => $this->input->post('kembalian'),
-					'kekurangan' => $this->input->post('kekurangan'),
+					'nama_pembayar' => $this->input->post('nama_pembayar'),
+					'jumlah_bayar' => $this->input->post('jumlah_bayar'),
+					'tgl_bayar' => $this->input->post('tgl_bayar'),
+					'no_bukti' => $this->input->post('no_bukti'),
                 );
 
-                $this->Pembayaran_model->update_pembayaran($id,$params);            
+                $this->Pembayaran_model->transactionUpdate($id,$params);            
                 redirect('pembayaran/index');
             }
             else
             {
 				$this->load->model('Pasien_model');
-				$data['all_pasien'] = $this->Pasien_model->get_all_pasien();
 				$data['all_pasien'] = $this->Pasien_model->get_all_pasien();
 
 				$this->load->model('Kamar_model');
@@ -158,7 +206,7 @@ class Pembayaran extends CI_Controller{
         // check if the pembayaran exists before trying to delete it
         if(isset($pembayaran['id']))
         {
-            $this->Pembayaran_model->delete_pembayaran($id);
+            $this->Pembayaran_model->transactionDelete($id);
             redirect('pembayaran/index');
         }
         else
@@ -166,3 +214,4 @@ class Pembayaran extends CI_Controller{
     }
     
 }
+

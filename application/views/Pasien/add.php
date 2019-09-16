@@ -273,7 +273,8 @@
 									class="fas fa-fire"></i><span>Dashboard</span></a>
 							<ul class="dropdown-menu">
 								<li><a class="nav-link" href="<?php echo site_url('card/index'); ?>">Card</a></li>
-								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></li>
+								<li><a class="nav-link" href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+										Pembayaran</a></li>
 								<li><a class="nav-link" href="<?php echo site_url('pasien/index'); ?>">Pasien</a></li>
 							</ul>
 						</li>
@@ -288,7 +289,8 @@
 						<div class="section-header-breadcrumb">
 							<div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
 							<div class="breadcrumb-item"><a href="<?php echo site_url('card/index'); ?>">Card</a></div>
-							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis Pembayaran</a></div>
+							<div class="breadcrumb-item"><a href="<?php echo site_url('jns_pembayaran/index'); ?>">Jenis
+									Pembayaran</a></div>
 						</div>
 					</div>
 
@@ -311,13 +313,15 @@
 								<div class="form-group">
 									<label for="jns_kelamin" class="col-md-2 control-label">Jenis Kelamin</label>
 									<div class="col-md-2 form-check">
-										<input type="radio" class="form-check-input" name="jns_kelamin" value="L" id="jns_kelamin" checked=""/>
+										<input type="radio" class="form-check-input" name="jns_kelamin" value="L"
+											id="jns_kelamin" checked="" />
 										<label class="form-check-label ml-5" for="jns_kelamin">Laki - Laki</label>
 									</div>
 									<div class="col-md-2 form-check">
-                        				<input type="radio" class="form-check-input" name="jns_kelamin" value="P" id="jns_kelamin" checked=""/>
-                        				<label class="form-check-label ml-5" for="jns_kelamin">Perempuan</label>
-                     				 </div>
+										<input type="radio" class="form-check-input" name="jns_kelamin" value="P"
+											id="jns_kelamin" checked="" />
+										<label class="form-check-label ml-5" for="jns_kelamin">Perempuan</label>
+									</div>
 								</div>
 								<div class="form-group">
 									<label for="tgl_masuk" class="col-md-2 control-label">Tanggal Masuk</label>
@@ -336,7 +340,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="jns_kamar" class="col-md-2 control-label">Kamar</label>	
+									<label for="jns_kamar" class="col-md-2 control-label">Kamar</label>
 									<div class="col-md-4">
 										<select name="jns_kamar" class="form-control" style="height:40px;">
 											<option value="">Jenis Kamar</option>
@@ -384,7 +388,8 @@
 
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-4">
-										<a href="<?php echo site_url('pasien/index'); ?>" class="btn btn-danger">Back</a>
+										<a href="<?php echo site_url('pasien/index'); ?>"
+											class="btn btn-danger">Back</a>
 										<button type="submit" class="btn btn-success ml-5">Save</button>
 									</div>
 								</div>

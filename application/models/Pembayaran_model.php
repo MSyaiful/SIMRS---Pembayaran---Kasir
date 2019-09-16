@@ -53,4 +53,38 @@ class Pembayaran_model extends CI_Model
     {
         return $this->db->delete('pembayaran',array('id'=>$id));
     }
+
+    public function transaction($params)
+    {
+        $this->db->trans_start();
+        $this->add_pembayaran($params);   
+        $this->db->trans_complete();
+        if ($this->db->trans_status()=== false) {
+            echo "rollback";
+        }else{  
+            redirect(base_url('pembayaran/index'));
+        }
+    }
+    public function transactionUpdate($id,$params)
+    {
+        $this->db->trans_start();
+        $this->update_pembayaran($id,$params);   
+        $this->db->trans_complete();
+        if ($this->db->trans_status()=== false) {
+            echo "rollback";
+        }else{  
+            redirect(base_url('pembayaran/index'));
+        }
+    }
+    public function transactionDelete($id)
+    {
+        $this->db->trans_start();
+        $this->delete_pembayaran($params);   
+        $this->db->trans_complete();
+        if ($this->db->trans_status()=== false) {
+            echo "rollback";
+        }else{  
+            redirect(base_url('pembayaran/index'));
+        }
+    } 
 }
